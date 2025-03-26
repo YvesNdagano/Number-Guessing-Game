@@ -1,0 +1,42 @@
+# Python Project: Number Guessing Game
+# This project is a simple Number Guessing game which allows the user to spend good time.
+# Group Members: Mercy, Yves, Charlene,
+# Course Name and Number: IST IST1025A SS2025
+# Instructor's Name: Dr. XYZ
+# Date of Submission: March 2025
+
+
+import random  # defines a series of functions for generating or manipulating random integers
+x=0
+y=100 #x and y represent the limit of the range of numbers the user can input
+answer=random.randint(x,y) #The answer will also be defined that range 
+guesses=0 #set the guesses number to 0 before starting the running
+running = True #The boolean function will keep running as soon as as the correct answer has not been found
+print("Guessing Game!!")
+print("Select a number btn 1 and 100")
+
+while running: # The loop starts here when the user runs the application
+
+    guess = input("Enter your guess") # The user can input his/her guesses here
+
+    if guess.isdigit(): # First condition defines the guess as a digit and not another variable
+        guess= int(guess)
+        guesses +=1 #This increases attempts evrytime the user input a guess  
+        if guess < x or guess > y: #second condition defining the exact range of numbers the user has access to 
+            print("Number out of range")
+            print("Please enter a number in the range")
+
+        elif guess < answer: #third condition for warning user that number is lower than the guess
+            print("Too Low")
+
+        elif guess > answer: #fourth condition for warning user that number is higher than the guess
+            print("Too High")
+        else:  #Here is when the user input the right number
+            print(f"CORRECT!! The answer was {answer}") #print the correct answer that the user has put and displays it
+            print(f"Number of guesses:{guesses}")  #print the number of attempts 
+            running = False #Here is the end of running time and  shows that the user has put the right number
+    else: #The else is for in case the user input another value wich is not an integer
+        print("Invalid guess")
+        print("Please enter a number in the range")
+
+        #Include a feature that allows the user to play again if they want to
